@@ -6,5 +6,4 @@ document.getElementById('base64-converter').addEventListener('click', function()
 
 document.getElementById('toast-maker').addEventListener('click', function() {
 window.open('tools/Smart Dev Toast Marker/index.html);
-    console.log('Smart Toast Maker selected.');
 });
