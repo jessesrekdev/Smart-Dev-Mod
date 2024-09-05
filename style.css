@@ -1,0 +1,66 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    user-select: none; /* Disable text selection */
+    overflow: hidden; /* Prevent unnecessary scrolling */
+}
+
+/* Header Toolbar */
+header {
+    background-color: orange;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Cards Container */
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+/* Individual Cards */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    width: 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
