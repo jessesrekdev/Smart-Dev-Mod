@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Dev Toast Maker by Jesse Network</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="dialog-maker">
+        <div class="toggle-container">
+            <div id="simpleTextToggle" class="toggle-option selected">Simple Text</div>
+            <div id="base64Toggle" class="toggle-option">Base 64</div>
+        </div>
+        <input type="text" id="inputText" placeholder="Enter some text..." oninput="clearOutput()">
+        <button onclick="createDialog()">Create Toast</button>
+        <textarea id="outputText" readonly></textarea>
+
+        <div id="notification" class="notification">
+            <div id="loadingProgress" class="loading-progress">
+                <svg class="notification-icon" width="24" height="24" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" stroke="#ffffff" stroke-width="10" fill="none">
+                        <animate attributeName="r" values="40;20;40" dur="1s" repeatCount="indefinite" />
+                    </circle>
+                </svg>
+            </div>
+            <div id="successSvg" class="success-svg" style="display: none;">
+                <svg class="notification-icon" fill="#00FF00" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm5.676,8.237-6,5.5a1,1,0,0,1-1.383-.03l-3-3a1,1,0,1,1,1.414-1.414l2.323,2.323,5.294-4.853a1,1,0,1,1,1.352,1.474Z"
+                        fill="none" stroke="#00FF00" stroke-width="2" stroke-dasharray="0, 100">
+                        <animate attributeName="stroke-dasharray" from="0, 100" to="100, 0" dur="1s" fill="freeze" />
+                    </path>
+                </svg>
+            </div>
+            <div id="errorSvg" class="error-svg" style="display: none;">
+                <svg class="notification-icon" fill="#FF0000" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,13.41L13.41,16,12,14.59,10.59,16,8,13.41,9.41,12,8,10.59,10.59,8,12,9.41,13.41,8,16,10.59,14.59,12Z"
+                        fill="none" stroke="#FF0000" stroke-width="2">
+                    </path>
+                </svg>
+            </div>
+            <span class="notification-text" id="notificationText">Our Toast cannot be empty!</span>
+        </div>
+
+        <div class="fab" onclick="createToastPreview()">
+            <svg class="fab-icon" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="white" d="M16 1h-10c-1.1 0-1.99.9-1.99 2l-.01 14c0 1.1.89 2 1.99 2h4v2h-3c-.55 0-1 .45-1 1s.45 1 1 1h10c.55 0 1-.45 1-1s-.45-1-1-1h-3v-2h4c1.1 0 2-.9 2-2v-10l-6-6zm2 16c0 .55-.45 1-1 1h-10c-.55 0-1-.45-1-1v-14c0-.55.45-1 1-1h9v5h5v10zm-9-9h4c.55 0 1-.45 1-1s-.45-1-1-1h-4c-.55 0-1 .45-1 1s.45 1 1 1zm0 4h8c.55 0 1-.45 1-1s-.45-1-1-1h-8c-.55 0-1 .45-1 1s.45 1 1 1zm0 4h8c.55 0 1-.45 1-1s-.45-1-1-1h-8c-.55 0-1 .45-1 1s.45 1 1 1z"/>
+            </svg>
+        </div>
+
+        <div class="fab preview-fab" onclick="createToastPreview()">
+             <svg class="fab-icon" width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 4.5C7 4.5 3.17 7.11 1 12c2.17 4.89 6 7.5 11 7.5s8.83-2.61 11-7.5c-2.17-4.89-6-7.5-11-7.5zm0 13c-3.07 0-5.64-1.63-7.59-4.5 1.95-2.87 4.52-4.5 7.59-4.5s5.64 1.63 7.59 4.5c-1.95 2.87-4.52 4.5-7.59 4.5zm0-7c-1.38 0-2.5 1.12-2.5 2.5S10.62 15.5 12 15.5 14.5 14.38 14.5 13 13.38 10.5 12 10.5z"/>
+</svg>
+        </div>
+    </div>
+    <!-- Preview Toast -->
+        <div id="previewToast">
+            <span class="toast-text">Previewing Code</span>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html> 

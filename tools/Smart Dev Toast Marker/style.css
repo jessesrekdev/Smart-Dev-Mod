@@ -1,0 +1,240 @@
+/* General Styles */
+* {
+overflow: hidden;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    position: relative;
+}
+
+.dialog-maker {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+}
+
+.dialog-maker input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.dialog-maker textarea[readonly] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #999999;
+    cursor: not-allowed;
+    height: 150px;
+    resize: none;
+}
+
+.dialog-maker button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.dialog-maker button:hover {
+    background-color: #45a049;
+}
+
+/* Notification CSS */
+.notification {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, top 0.3s ease;
+    border-radius: 0.8em;
+}
+
+.notification-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: white; /* Default color */
+}
+
+.notification-text {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.notification.show {
+    top: 50px;
+    opacity: 1;
+}
+
+/* Floating Action Button (FAB) */
+.fab {
+    width: 56px;
+    height: 56px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.fab:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Animation */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#outputText {
+    width: 100%;
+    height: 150px;
+    resize: vertical; /* Allow the user to resize vertically */
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: lightgrey; /* Light grey background */
+    color: transparent; /* Hide the text color */
+    background-image: linear-gradient(45deg, #ff0066, #33ccff, #ffcc00, #66ff33);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradient 5s ease infinite; /* Apply the gradient animation */
+    line-height: 1.5;
+    overflow-y: auto; /* Allow vertical scrolling */
+    white-space: pre-wrap; /* Preserve line breaks */
+}
+
+/* Toggle Container Styles */
+.toggle-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    
+}
+
+.toggle-option {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: lightgrey;
+    transition: background-color 0.3s ease;
+    border-radius: 1em;
+    padding: 5px;
+    margin: 5px;
+}
+
+.toggle-option.selected {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Preview Toast */
+#previewToast {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 5);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+    border-radius: 1em;
+}
+
+#previewToast.show {
+    display: flex;
+    bottom: 80px;
+    opacity: 1;
+}
+
+#previewToast .toast-text {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Preview FAB */
+.preview-fab {
+    width: 56px;
+    height: 56px;
+    background-color: #FFC107;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 140px;
+    left: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    text-align: center;
+    padding: -50px;
+}
+
+.preview-fab:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.preview-fab svg {
+    width: 35px; /* Adjust the size of the SVG */
+    height: 35px;
+    fill: white; /* Make the icon white */
+    margin-top: 10px;
+}
