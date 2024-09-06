@@ -15,7 +15,7 @@ document.getElementById('smali-toast').addEventListener('click', function() {
 
 document.getElementById('smali-toast-color').addEventListener('click', function() {
   document.getElementById('modal').style.display = 'none';
-  setTimeout(() => window.open('tools/Smart Dev Toast with color/index.html'), 10);
+  setTimeout(() => window.open('tools/Toast with color/index.html'), 10);
 });
 
 window.addEventListener('click', function(event) {
