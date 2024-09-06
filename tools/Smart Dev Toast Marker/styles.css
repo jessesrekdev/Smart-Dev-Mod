@@ -108,7 +108,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     bottom: 80px;
     right: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -198,8 +198,9 @@ body {
 
 #previewToast.show {
     display: flex;
-    bottom: 80px;
+    bottom: 30px;
     opacity: 1;
+    position: fixed;
 }
 
 #previewToast .toast-text {
@@ -218,7 +219,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     bottom: 140px;
     left: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
