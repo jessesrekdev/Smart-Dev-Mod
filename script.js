@@ -4,6 +4,10 @@ document.getElementById('base64-converter').addEventListener('click', function()
   window.open('tools/Base 64 Converter/index.html');
 });
 
+document.getElementById('color-picker').addEventListener('click', function() {
+  window.open('tools/Smart Dev Color Picker/index.html');
+});
+
 document.getElementById('toast-maker').addEventListener('click', function() {
   document.getElementById('modal').style.display = 'block';
 });
