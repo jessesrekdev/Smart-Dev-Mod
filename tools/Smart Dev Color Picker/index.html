@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Color Picker with Copy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="color-picker-container">
+        <h1>Color Picker</h1>
+        <input type="color" id="colorPicker" class="color-picker">
+        <div class="color-display" id="colorDisplay"></div>
+        <div class="hex-container">
+            <p class="hex-value">Hex: <span id="hexValue">#000000</span></p>
+            <button class="copy-btn" id="copyBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="copyNotification" class="copy-notification">Copied!</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
