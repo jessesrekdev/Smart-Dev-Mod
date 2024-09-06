@@ -38,7 +38,6 @@ h1 {
     margin-bottom: 20px;
     -webkit-appearance: none;
     appearance: none;
-    cursor: pointer;
 }
 
 .color-picker::-webkit-color-swatch {
@@ -95,7 +94,6 @@ h1 {
     color: white;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
 }
 
 .create-toast-btn:hover, .preview-btn:hover {
@@ -117,7 +115,6 @@ h1 {
 .copy-btn {
     background: none;
     border: none;
-    cursor: pointer;
     padding: 0;
     margin-top: 15px;
 }
