@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast with Color</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="color-picker-container">
+        <h1>Pick a Color</h1>
+        <input type="color" id="colorPicker" class="color-picker">
+        <div class="color-display" id="colorDisplay"></div>
+        
+        <div class="hex-container">
+            <p class="hex-value">Hex:</p>
+            <input type="text" id="hexInput" class="hex-input" maxlength="7" value="#000000">
+        </div>
+
+        <input type="text" id="toastTextInput" class="toast-text-input" placeholder="Enter Toast Text">
+        <button class="create-toast-btn" id="createToastBtn">Create Toast</button>
+
+        <textarea id="readonlyCode" class="readonly-code" readonly></textarea>
+        
+        <button class="preview-btn" id="previewBtn">Preview Toast</button>
+        <button class="copy-btn" id="copyCodeBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+        </button>
+
+        <div id="toastPreview" class="toast-preview"></div>
+        <div id="copyNotification" class="copy-notification">Copied!</div>
+        
+        <div id="errorSvg" class="error-svg" style="display: none;">
+            <svg class="notification-icon" fill="#FF0000" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm4,13.41L13.41,16,12,14.59,10.59,16,8,13.41,9.41,12,8,10.59,10.59,8,12,9.41,13.41,8,16,10.59,14.59,12Z"
+                    fill="none" stroke="#FF0000" stroke-width="2">
+                </path>
+            </svg>
+            <span class="notification-text" id="notificationText">Our Toast cannot be empty!</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

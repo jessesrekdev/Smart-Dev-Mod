@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-picker-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.color-picker {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.color-picker::-webkit-color-swatch {
+    border-radius: 10px;
+}
+
+.color-display {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+}
+
+.hex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.hex-value {
+    font-size: 1rem;
+    color: #555;
+    margin-right: 5px;
+}
+
+.hex-input {
+    width: 80px;
+    height: 30px;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+}
+
+.toast-text-input {
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.create-toast-btn, .preview-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.create-toast-btn:hover, .preview-btn:hover {
+    background-color: #0056b3;
+}
+
+.readonly-code {
+    width: 100%;
+    height: 120px;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    font-family: monospace;
+    resize: none;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.copy-btn svg {
+    stroke: #333;
+}
+
+.copy-btn:active svg {
+    stroke: #007bff;
+}
+
+.toast-preview {
+    display: none;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+.toast-preview.show {
+    display: block;
+    opacity: 1;
+    bottom: -30px;
+}
+
+.copy-notification {
+    display: none;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+.copy-notification.show {
+    display: block;
+    opacity: 1;
+    bottom: -30px;
+}
+
+.error-svg {
+    display: none;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #FF0000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border: 1px solid #FF0000;
+    opacity: 0;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+.error-svg.show {
+    display: block;
+    opacity: 1;
+    bottom: 0px;
+}
+
+.notification-text {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.readonly-code {
+    width: 100%;
+    height: 120px;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    font-family: monospace;
+    overflow-y: auto;
+    white-space: pre-wrap; /* Preserve whitespace */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent; /* Initially transparent for gradient effect */
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+    background-size: 400% 400%; /* Make sure gradient covers the area */
+    background-clip: text; /* Clip gradient to text */
+    animation: gradientAnimation 5s ease infinite; /* Apply gradient animation */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.readonly-code span {
+    font-weight: bold; /* Make text bold */
+}
