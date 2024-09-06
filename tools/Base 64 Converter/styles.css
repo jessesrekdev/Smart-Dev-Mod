@@ -81,7 +81,6 @@ button {
   border-radius: 4px;
   background-color: #007BFF;
   color: #ffffff;
-  cursor: pointer;
   transition: background-color 0.3s ease;
   margin-bottom: 10px;
 }
@@ -97,7 +96,6 @@ button:focus {
 #outputText {
   height: 150px;
   background-color: #f9f9f9;
-  cursor: default;
 }
 
 .fab {
@@ -111,7 +109,6 @@ button:focus {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
 }
