@@ -10,6 +10,30 @@ const copyNotification = document.getElementById('copyNotification');
 const toastPreview = document.getElementById('toastPreview');
 const errorSvg = document.getElementById('errorSvg');
 const notificationText = document.getElementById('notificationText');
+const simpleTextOption = document.getElementById('simpleTextOption');
+const base64TextOption = document.getElementById('base64TextOption');
+let isBase64Selected = false;
+
+// Toggle selection between Simple Text and Base 64 Text
+simpleTextOption.addEventListener('click', function() {
+    addTask(() => {
+    readonlyCode.value = '';
+        simpleTextOption.classList.add('selected');
+        base64TextOption.classList.remove('selected');
+        isBase64Selected = false;
+        return Promise.resolve();
+    });
+});
+
+base64TextOption.addEventListener('click', function() {
+    addTask(() => {
+    readonlyCode.value = '';
+        base64TextOption.classList.add('selected');
+        simpleTextOption.classList.remove('selected');
+        isBase64Selected = true;
+        return Promise.resolve();
+    });
+});
 
 // Task queue and status
 const taskQueue = [];
@@ -66,7 +90,7 @@ toastTextInput.addEventListener('input', function() {
     });
 });
 
-// Generate toast code and display it in the readonly textarea
+// Update the Create Toast button logic to handle Base 64 Text option
 createToastBtn.addEventListener('click', function() {
     addTask(() => {
         const toastText = toastTextInput.value.trim();
@@ -76,7 +100,32 @@ createToastBtn.addEventListener('click', function() {
         }
         
         const selectedColor = hexInput.value;
-        const toastCode = `
+
+        let toastCode = '';
+        if (isBase64Selected) {
+            // Convert the text with color to Base64
+            const base64Text = btoa(`<font color=${selectedColor}>${toastText}</font>`);
+            toastCode = `
+const-string v1, "${base64Text}"
+const/4 v0, 0x0
+invoke-static {v1, v0}, Landroid/util/Base64;->decode(Ljava/lang/String;I)[B
+move-result-object v0
+
+new-instance v1, Ljava/lang/String;
+invoke-direct {v1, v0}, Ljava/lang/String;-><init>([B)V
+
+invoke-static {v1}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
+move-result-object v1
+
+const/4 v0, 0x1
+invoke-static {p0, v1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+move-result-object v2
+
+invoke-virtual {v2}, Landroid/widget/Toast;->show()V
+            `;
+        } else {
+            // Generate toast for Simple Text
+            toastCode = `
 const-string v0, "<b><font color=${selectedColor}>${toastText}</font></b>"
 invoke-static {v0}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
 move-result-object v0
@@ -86,7 +135,9 @@ invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Co
 
 move-result-object v2
 invoke-virtual {v2}, Landroid/widget/Toast;->show()V
-        `;
+            `;
+        }
+
         readonlyCode.value = toastCode.trim();
         return Promise.resolve();
     });
