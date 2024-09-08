@@ -238,3 +238,31 @@ h1 {
 .readonly-code span {
     font-weight: bold; /* Make text bold */
 }
+
+.text-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.text-option {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: lightgrey;
+    color: #333;
+    border-radius: 8px;
+    margin: 0 5px;
+}
+
+.text-option.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.text-option:not(.selected):hover {
+    background-color: #ccc;
+}
+    
